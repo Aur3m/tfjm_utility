@@ -1,8 +1,14 @@
 def bubblesort(number):
     for i in range(len(number)):
-        if number[i+1]<nuber[i]:
+        if int(number[i+1])<int(number[i]):
             number[i+1],number[i]=number[i],number[i+1]
     return number
+
+def worst_bubble_situtation_gen(l):
+    final = ""
+    for i in range(int(l)):
+        final += str(i+1)
+    return final
 
 def sort_number(number):
     liste = [i for i in number]
@@ -19,10 +25,13 @@ def count_permutations(number):
                 final += count_permutations(number[0:i]+number[i+1]+number[i]+number[i+2::])
         return final
 
+n=input("entrez un 'n' personnalisé sous forme de nombre")
 print(
-    "Pour 12 :", count_permutations("12"),"\n",
-    "Pour 123 :", count_permutations("123"),"\n",
-    "Pour 1234 :", count_permutations("1234"),"\n",
-    "Pour 12345 :", count_permutations("12345"),"\n",
-    "Pour 123456 : ", count_permutations("123456")
-)
+    "Pour n = 2 :", count_permutations("12"),"\n",
+    "Pour n = 3 :", count_permutations("123"),"\n",
+    "Pour n = 4 :", count_permutations("1234"),"\n",
+    "Pour n = 5 :", count_permutations("12345"),"\n")
+
+print("Pour n = 6 :", count_permutations("123456"),"\n")
+
+print("Pour n =",n," : ", count_permutations(worst_bubble_situtation_gen(n)))
