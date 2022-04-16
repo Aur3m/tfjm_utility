@@ -1,3 +1,5 @@
+from functools import lru_cache
+
 def bubblesort(number):
     for i in range(len(number)):
         if int(number[i+1])<int(number[i]):
@@ -15,6 +17,7 @@ def sort_number(number):
     liste.sort(reverse = True)
     return liste
 
+@lru_cache(maxsize=None)
 def count_permutations(number):
     if [i for i in number] == sort_number(number) :
         return 1
